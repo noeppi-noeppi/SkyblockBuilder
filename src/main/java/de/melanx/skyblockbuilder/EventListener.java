@@ -98,10 +98,9 @@ public class EventListener {
             return;
         }
 
-        event.setCanceled(true);
-
         ITextComponent message = SkyblockHooks.onTeamChat(player, team, new StringTextComponent(event.getMessage().startsWith("@team ") ? event.getMessage().substring(6) : event.getMessage()));
         if (message != null) {
+            event.setCanceled(true);
             IFormattableTextComponent component = new StringTextComponent("<");
             component.append(event.getPlayer().getDisplayName());
             component.appendString("> ");
